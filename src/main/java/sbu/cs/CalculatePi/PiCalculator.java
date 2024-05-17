@@ -1,15 +1,12 @@
 package sbu.cs.CalculatePi;
 
-public class PiCalculator implements Runnable{
+import java.math.BigDecimal;
 
-    @Override
-    public void run() {
-
-    }
+public class PiCalculator{
 
     public String calculate(int floatingPoint)
     {
-        // TODO
+
         return null;
     }
 
