@@ -15,6 +15,18 @@ public class Operation  implements Runnable{
     }
     @Override
     public void run() {
+        BigDecimal term;
+        BigDecimal one = BigDecimal.ONE;
+        boolean add = true;
 
+        for (double i = start; i < end; i++) {
+            term = one.divide(new BigDecimal(2 * i + 1), floatingPoint + 5, BigDecimal.ROUND_HALF_UP);
+            if (add) {
+                partialPi = partialPi.add(term);
+            } else {
+                partialPi = partialPi.subtract(term);
+            }
+            add = !add;
+        }
     }
 }
