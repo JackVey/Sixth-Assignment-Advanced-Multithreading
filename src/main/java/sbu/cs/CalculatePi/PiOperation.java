@@ -19,8 +19,8 @@ public class PiOperation  implements Runnable{
         BigDecimal one = BigDecimal.ONE;
 
         for (double i = start; i < end; i++) {
-            term = one.divide(new BigDecimal(2 * i + 1), floatingPoint + 5, BigDecimal.ROUND_HALF_UP);
-            if (i % 2 != 0) {
+            term = one.divide(new BigDecimal(2 * i + 1), floatingPoint + 100, BigDecimal.ROUND_HALF_UP);
+            if (i % 2 == 0) {
                 partialPi = partialPi.add(term);
             } else {
                 partialPi = partialPi.subtract(term);

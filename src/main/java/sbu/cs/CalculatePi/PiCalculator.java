@@ -9,29 +9,30 @@ public class PiCalculator{
     public String calculate(int floatingPoint)
     {
         BigDecimal pi = BigDecimal.ZERO;
-        double oneMillion = Math.pow(10, 6);
+        double repetion = Math.pow(10, 9);
+        int numberOfThreads = 10;
         ArrayList<PiOperation> piOperations = new ArrayList<>();
         ArrayList<Thread> threads = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            piOperations.add(new PiOperation(oneMillion * i, oneMillion * (i + 1), floatingPoint));
+        for (int i = 0; i < numberOfThreads; i++) {
+            piOperations.add(new PiOperation(repetion * i, repetion * (i + 1), floatingPoint));
             threads.add(new Thread(piOperations.get(i)));
             threads.get(i).start();
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numberOfThreads; i++) {
             try {
                 threads.get(i).join();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
-        for (int i = 0; i < 10; i++) {
-            pi.add(piOperations.get(i).getPartialPi());
+        for (int i = 0; i < numberOfThreads; i++) {
+            pi = pi.add(piOperations.get(i).getPartialPi());
         }
-        return pi.toString();
+        return pi.toString().substring(0, floatingPoint + 2);
     }
 
     public static void main(String[] args) {
         PiCalculator a = new PiCalculator();
-        System.out.println(a.calculate(10));
+        System.out.println(a.calculate(5));
     }
 }
