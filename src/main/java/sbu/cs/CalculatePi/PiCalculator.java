@@ -31,6 +31,7 @@ public class PiCalculator{
     }
 
     public static void main(String[] args) {
-
+        PiCalculator a = new PiCalculator();
+        System.out.println(a.calculate(10));
     }
 }
