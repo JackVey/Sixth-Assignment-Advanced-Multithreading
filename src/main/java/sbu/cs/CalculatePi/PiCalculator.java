@@ -10,7 +10,7 @@ public class PiCalculator{
     {
         BigDecimal pi = BigDecimal.ZERO;
         double repetion = Math.pow(10, 9);
-        int numberOfThreads = 10;
+        int numberOfThreads = 100;
         ArrayList<PiOperation> piOperations = new ArrayList<>();
         ArrayList<Thread> threads = new ArrayList<>();
         for (int i = 0; i < numberOfThreads; i++) {
