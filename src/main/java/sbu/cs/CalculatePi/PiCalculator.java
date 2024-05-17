@@ -9,8 +9,8 @@ public class PiCalculator{
     public String calculate(int floatingPoint)
     {
         BigDecimal pi = BigDecimal.ZERO;
-        double repetion = Math.pow(10, 9);
-        int numberOfThreads = 100;
+        double repetion = Math.pow(10, 8);
+        int numberOfThreads = 20;
         ArrayList<PiOperation> piOperations = new ArrayList<>();
         ArrayList<Thread> threads = new ArrayList<>();
         for (int i = 0; i < numberOfThreads; i++) {
