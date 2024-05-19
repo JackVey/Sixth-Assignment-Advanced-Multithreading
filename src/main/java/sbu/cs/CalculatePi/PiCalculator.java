@@ -55,12 +55,15 @@ public class PiCalculator{
         threadPool.shutdown();
 
         try {
-            threadPool.awaitTermination(100, TimeUnit.MILLISECONDS);
+            threadPool.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        return pi.toString().substring(0, floatingPoint + 2);
+        String result = pi.toString().substring(0, floatingPoint + 2);
+        //here we reset pi
+        pi = BigDecimal.ZERO;
+        return result;
     }
     public static synchronized void addToPi(BigDecimal value){
         pi = pi.add(value);
