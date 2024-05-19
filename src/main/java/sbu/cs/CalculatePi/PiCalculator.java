@@ -55,7 +55,7 @@ public class PiCalculator{
         threadPool.shutdown();
 
         try {
-            threadPool.awaitTermination(10000, TimeUnit.MILLISECONDS);
+            threadPool.awaitTermination(100, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
