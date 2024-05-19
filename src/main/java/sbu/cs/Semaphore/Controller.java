@@ -22,11 +22,11 @@ public class Controller {
 
     public static void main(String[] args) {
         Semaphore semaphore = new Semaphore(2);
-        Operator operator1 = new Operator("operator1");
-        Operator operator2 = new Operator("operator2");
-        Operator operator3 = new Operator("operator3");
-        Operator operator4 = new Operator("operator4");
-        Operator operator5 = new Operator("operator5");
+        Operator operator1 = new Operator("operator1", semaphore);
+        Operator operator2 = new Operator("operator2", semaphore);
+        Operator operator3 = new Operator("operator3", semaphore);
+        Operator operator4 = new Operator("operator4", semaphore);
+        Operator operator5 = new Operator("operator5", semaphore);
 
         operator1.start();
         operator2.start();
